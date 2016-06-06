@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @item.errors.any? %>
+  <% @item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Item #<%= @item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_item/<%= @item.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for size -->
+      <div class="form-group">
+        <label for="size" class="control-label">
+          Size
+        </label>
+
+        <input type="text" id="size" name="size" placeholder="Size" class="form-control" value="<%= @item.size %>">
+      </div>
+
+      <!-- Label and input for child_id -->
+      <div class="form-group">
+        <label for="child_id" class="control-label">
+          Child
+        </label>
+
+        <input type="text" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= @item.child_id %>">
+      </div>
+
+      <!-- Label and input for total_cnt -->
+      <div class="form-group">
+        <label for="total_cnt" class="control-label">
+          Total cnt
+        </label>
+
+        <input type="text" id="total_cnt" name="total_cnt" placeholder="Total cnt" class="form-control" value="<%= @item.total_cnt %>">
+      </div>
+
+      <!-- Label and input for current_cnt -->
+      <div class="form-group">
+        <label for="current_cnt" class="control-label">
+          Current cnt
+        </label>
+
+        <input type="text" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= @item.current_cnt %>">
+      </div>
+
+      <!-- Label and input for min_cnt -->
+      <div class="form-group">
+        <label for="min_cnt" class="control-label">
+          Min cnt
+        </label>
+
+        <input type="text" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= @item.min_cnt %>">
+      </div>
+
+      <!-- Label and input for weather_type -->
+      <div class="form-group">
+        <label for="weather_type" class="control-label">
+          Weather type
+        </label>
+
+        <input type="text" id="weather_type" name="weather_type" placeholder="Weather type" class="form-control" value="<%= @item.weather_type %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @item.description %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Item
+      </button>
+      or
+      <a href="/items/<%= @item.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

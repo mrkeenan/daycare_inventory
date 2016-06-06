@@ -1,5 +1,75 @@
 Rails.application.routes.draw do
 
+  # Routes for the Class resource:
+  # CREATE
+  get "/classes/new", :controller => "classes", :action => "new"
+  post "/create_class", :controller => "classes", :action => "create"
+
+  # READ
+  get "/classes", :controller => "classes", :action => "index"
+  get "/classes/:id", :controller => "classes", :action => "show"
+
+  # UPDATE
+  get "/classes/:id/edit", :controller => "classes", :action => "edit"
+  post "/update_class/:id", :controller => "classes", :action => "update"
+
+  # DELETE
+  get "/delete_class/:id", :controller => "classes", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Item resource:
+  # CREATE
+  get "/items/new", :controller => "items", :action => "new"
+  post "/create_item", :controller => "items", :action => "create"
+
+  # READ
+  get "/items", :controller => "items", :action => "index"
+  get "/items/:id", :controller => "items", :action => "show"
+
+  # UPDATE
+  get "/items/:id/edit", :controller => "items", :action => "edit"
+  post "/update_item/:id", :controller => "items", :action => "update"
+
+  # DELETE
+  get "/delete_item/:id", :controller => "items", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Family resource:
+  # CREATE
+  get "/families/new", :controller => "families", :action => "new"
+  post "/create_family", :controller => "families", :action => "create"
+
+  # READ
+  get "/families", :controller => "families", :action => "index"
+  get "/families/:id", :controller => "families", :action => "show"
+
+  # UPDATE
+  get "/families/:id/edit", :controller => "families", :action => "edit"
+  post "/update_family/:id", :controller => "families", :action => "update"
+
+  # DELETE
+  get "/delete_family/:id", :controller => "families", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Child resource:
+  # CREATE
+  get "/children/new", :controller => "children", :action => "new"
+  post "/create_child", :controller => "children", :action => "create"
+
+  # READ
+  get "/children", :controller => "children", :action => "index"
+  get "/children/:id", :controller => "children", :action => "show"
+
+  # UPDATE
+  get "/children/:id/edit", :controller => "children", :action => "edit"
+  post "/update_child/:id", :controller => "children", :action => "update"
+
+  # DELETE
+  get "/delete_child/:id", :controller => "children", :action => "destroy"
+  #------------------------------
+
+  devise_for :users
+
   root "users#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
