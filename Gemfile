@@ -27,6 +27,8 @@ gem "devise"
 
 gem "starter_generators", :git => "http://github.com/raghubetina/starter_generators.git"
 
+gem 'pry-rails', :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
