@@ -1,11 +1,12 @@
 class Child < ActiveRecord::Base
-  validates :firstname, presence: true, uniqueness: { scope: [:lastname, :dob]  }
-  validates :lastname, presence: true, uniqueness: { scope: [:firstname, :dob]  }
-  validates :dob, presence: true, uniqueness: { scope: [:firstname, :lastname] }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :dob, presence: true
   validates :class_id, presence: true
 
-
+  has_many :families
   has_many :users, through: :families
+  
   has_many :items
   belongs_to :classroom
 

@@ -1,71 +1,64 @@
 <!-- Validation failure messages -->
 <% if @child.errors.any? %>
-<% @child.errors.full_messages.each do |message| %>
-<div class="alert alert-dismissable alert-danger">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <%= message %>
+  <% @child.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Child</h3>
 </div>
-<% end %>
-<% end %>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          Add Child
-        </h3>
+  <div class="col-md-12">
+    <form action="/create_child" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @child.first_name %>">
       </div>
 
-      <div class="panel-body"
-      <form action="/create_child" method="post">
-        <!-- Hidden input for authenticity token to protect from forgery -->
-        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
 
-        <!-- Label and input for first_name -->
-        <div class="form-group">
-          <label for="first_name" class="control-label">
-            First name
-          </label>
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @child.last_name %>">
+      </div>
 
-          <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @child.first_name %>">
-        </div>
+      <!-- Label and input for dob -->
+      <div class="form-group">
+        <label for="total_cnt" class="control-label">
+          Dob
+        </label>
 
-        <!-- Label and input for last_name -->
-        <div class="form-group">
-          <label for="last_name" class="control-label">
-            Last name
-          </label>
+        <input type="date" id="dob" name="dob" placeholder="Dob" class="form-control" value="<%= @child.dob %>">
+      </div>
 
-          <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @child.last_name %>">
-        </div>
+      <!-- Label and input for class_id -->
+      <div class="form-group">
+        <label for="current_cnt" class="control-label">
+          Class
+        </label>
 
-        <!-- Label and input for dob -->
-        <div class="form-group">
-          <label for="dob" class="control-label">
-            Dob
-          </label>
+        <%= select_tag(:class_id, options_from_collection_for_select(Classroom.all, :id, :room), :class => "form-control") %>
+      </div>
 
-          <input type="text" id="dob" name="dob" placeholder="Dob" class="form-control" value="<%= @child.dob %>">
-        </div>
-
-        <!-- Label and input for class_id -->
-        <div class="form-group">
-          <label for="class_id" class="control-label">
-            Class
-          </label>
-
-          <%= select_tag(:classroom_id, options_from_collection_for_select(Classroom.all, :id, :room), :class => "form-control") %>
-
-        </div>
-
-        <button class="btn btn-success">
-          Create Child
-        </button>
-        or
-        <a href="/children">Cancel</a>
-      </form>
-    </div>
+      <button class="btn btn-success">
+        Create Child
+      </button>
+      or
+      <a href="/children">Cancel</a>
+    </form>
   </div>
-</div>
 </div>

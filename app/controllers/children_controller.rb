@@ -14,12 +14,18 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new
     @child.class_id = params[:class_id]
-    @child.dob = params[:dob]
+    @child.dob = Chronic.parse(params[:dob])
     @child.last_name = params[:last_name]
     @child.first_name = params[:first_name]
 
     if @child.save
-      redirect_to "/family/create_family/#{current_user.id}/#{@child.id}"
+      @family = Family.new
+      @family.user_id = current_user.id
+      @family.child_id = @child.id
+
+      @family.save
+
+      redirect_to "/users"
     else
       render 'new'
     end

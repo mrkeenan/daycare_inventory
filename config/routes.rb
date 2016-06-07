@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+
+  devise_for :users
+
+  root "users#index"
+
+  get "/users", :controller => "users", :action => "index"
   # Routes for the Class resource:
   # CREATE
   get "/classrooms/new", :controller => "classrooms", :action => "new"
@@ -68,9 +74,6 @@ Rails.application.routes.draw do
   get "/delete_child/:id", :controller => "children", :action => "destroy"
   #------------------------------
 
-  devise_for :users
-
-  root "users#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -27,6 +27,11 @@ gem "starter_generators", :git => "http://github.com/raghubetina/starter_generat
 
 gem 'pry-rails', :group => :development
 
+gem "chronic"
+
+#gem 'momentjs-rails', '>= 2.9.0'
+#gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
