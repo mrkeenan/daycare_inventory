@@ -10,18 +10,18 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Room</th>
-        <th>Teacher name1</th>
-        <th>Teacher name2</th>
-        <th>Teacher name3</th>
+        <th>Teacher name</th>
+        <th>Teacher name</th>
+        <th>Teacher name</th>
         <th>Actions</th>
       </tr>
 
       <% @classrooms.each do |classroom| %>
       <tr>
         <td><%= classroom.room %></td>
-        <td><%= classroom.teacher_name1 %></td>
-        <td><%= classroom.teacher_name2 %></td>
-        <td><%= classroom.teacher_name3 %></td>
+        <td><%= classroom.teacher_name_1 %></td>
+        <td><%= classroom.teacher_name_2 %></td>
+        <td><%= classroom.teacher_name_3 %></td>
         <td>
           <a href="/classrooms/<%= classroom.id %>" class="btn btn-primary">Show</a>
           <a href="/classrooms/<%= classroom.id %>/edit" class="btn btn-warning">Edit</a>
