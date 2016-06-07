@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   # Routes for the Family resource:
   # CREATE
   get "/families/new", :controller => "families", :action => "new"
-  post "/create_family/:user_id/:child_id", :controller => "families", :action => "create"
+  post "/create_family/", :controller => "families", :action => "create"
 
   # READ
   get "/families", :controller => "families", :action => "index"

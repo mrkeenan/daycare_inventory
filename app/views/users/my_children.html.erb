@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Children</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <% @children.each do |child| %>
+          <li class="list-group-item">
+            <% if current_user.children.pluck(:id).empty? %>
+            <form action="/create_family" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+
+              <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= child.id %>">
+
+              <button class="btn btn-link">
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+              </button>
+            </form>
+            <% else %>
+            <button class="btn btn-link">
+            <a href="delete_family/<%= current_user.families.find_by(:child_id => child.id).id %>">
+              <i class="fa fa-check-square" aria-hidden="true"></i>
+            </a>
+          </button>
+            <% end %>
+            <a href="/children/<%= child.id %>"><%= child.first_name %> <%= child.last_name %></a>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

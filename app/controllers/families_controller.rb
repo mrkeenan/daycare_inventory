@@ -17,7 +17,7 @@ class FamiliesController < ApplicationController
     @family.child_id = params[:child_id]
 
     if @family.save
-      redirect_to "/users", :notice => "Child created successfully."
+      redirect_to :back
     else
       render 'new'
     end
