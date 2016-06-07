@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     @user = User.find_by(:id => params[:id])
   end
 
+  def my_children
+    @children = Child.all
+  end
+
 end

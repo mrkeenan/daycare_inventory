@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root "users#index"
 
   get "/users", :controller => "users", :action => "index"
+  get "/my_children", :controller => "users", :action => "my_children"
   # Routes for the Class resource:
   # CREATE
   get "/classrooms/new", :controller => "classrooms", :action => "new"
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_child/:id", :controller => "children", :action => "destroy"
+
   #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.
