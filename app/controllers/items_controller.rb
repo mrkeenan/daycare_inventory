@@ -18,6 +18,8 @@ class ItemsController < ApplicationController
     @item.total_cnt = params[:total_cnt]
     @item.current_cnt = params[:current_cnt]
     @item.min_cnt = params[:min_cnt]
+    @item.take_cnt = params[:take_cnt]
+    @item.return_cnt = params[:return_cnt]
     @item.weather_type = params[:weather_type]
     @item.description = params[:description]
 
@@ -40,6 +42,8 @@ class ItemsController < ApplicationController
     @item.total_cnt = params[:total_cnt]
     @item.current_cnt = params[:current_cnt]
     @item.min_cnt = params[:min_cnt]
+    @item.take_cnt = params[:take_cnt]
+    @item.return_cnt = params[:return_cnt]
     @item.weather_type = params[:weather_type]
     @item.description = params[:description]
 
