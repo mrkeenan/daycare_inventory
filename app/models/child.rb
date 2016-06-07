@@ -7,7 +7,7 @@ class Child < ActiveRecord::Base
 
   has_many :users, through: :families
   has_many :items
-  belongs_to :class
+  belongs_to :classroom
 
-  accepts_nested_atributes_for :items, allow_destroy: true
+  accepts_nested_attributes_for :items, allow_destroy: true
 end

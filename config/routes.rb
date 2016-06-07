@@ -2,19 +2,19 @@ Rails.application.routes.draw do
 
   # Routes for the Class resource:
   # CREATE
-  get "/classes/new", :controller => "classes", :action => "new"
-  post "/create_class", :controller => "classes", :action => "create"
+  get "/classrooms/new", :controller => "classrooms", :action => "new"
+  post "/create_classroom", :controller => "classrooms", :action => "create"
 
   # READ
-  get "/classes", :controller => "classes", :action => "index"
-  get "/classes/:id", :controller => "classes", :action => "show"
+  get "/classrooms", :controller => "classrooms", :action => "index"
+  get "/classrooms/:id", :controller => "classrooms", :action => "show"
 
   # UPDATE
-  get "/classes/:id/edit", :controller => "classes", :action => "edit"
-  post "/update_class/:id", :controller => "classes", :action => "update"
+  get "/classrooms/:id/edit", :controller => "classrooms", :action => "edit"
+  post "/update_classroom/:id", :controller => "classrooms", :action => "update"
 
   # DELETE
-  get "/delete_class/:id", :controller => "classes", :action => "destroy"
+  get "/delete_classroom/:id", :controller => "classrooms", :action => "destroy"
   #------------------------------
 
   # Routes for the Item resource:
