@@ -19,7 +19,7 @@ class ChildrenController < ApplicationController
     @child.first_name = params[:first_name]
 
     if @child.save
-      redirect_to "/children", :notice => "Child created successfully."
+      redirect_to "/family/create_family/#{current_user.id}/#{@child.id}"
     else
       render 'new'
     end
