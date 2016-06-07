@@ -14,9 +14,9 @@ class ClassroomsController < ApplicationController
   def create
     @classroom = Classroom.new
     @classroom.room = params[:room]
-    @classroom.teacher_name1 = params[:teacher_name1]
-    @classroom.teacher_name2 = params[:teacher_name2]
-    @classroom.teacher_name3 = params[:teacher_name3]
+    @classroom.teacher_name_1 = params[:teacher_name_1]
+    @classroom.teacher_name_2 = params[:teacher_name_2]
+    @classroom.teacher_name_3 = params[:teacher_name_3]
 
     if @classroom.save
       redirect_to "/classrooms", :notice => "Class created successfully."
@@ -33,9 +33,9 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
 
     @classroom.room = params[:room]
-    @classroom.teacher_name1 = params[:teacher_name1]
-    @classroom.teacher_name2 = params[:teacher_name2]
-    @classroom.teacher_name3 = params[:teacher_name3]
+    @classroom.teacher_name_1 = params[:teacher_name_1]
+    @classroom.teacher_name_2 = params[:teacher_name_2]
+    @classroom.teacher_name_3 = params[:teacher_name_3]
 
     if @classroom.save
       redirect_to "/classrooms", :notice => "Class updated successfully."
