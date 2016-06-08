@@ -19,7 +19,7 @@ class FamiliesController < ApplicationController
     if @family.save
       redirect_to :back
     else
-      render 'new'
+      redirect_to "/users/my_children"
     end
   end
 
@@ -45,6 +45,6 @@ class FamiliesController < ApplicationController
 
     @family.destroy
 
-    redirect_to "/families", :notice => "Family deleted."
+    redirect_to :back
   end
 end

@@ -2,37 +2,49 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">My Children</h3>
+        <h2 class="panel-title text-center">My Children</h2>
+        <p></p>
+        <p class="text-center">
+          <small>Use checkboxes to select/unselect children.</small>
+        </p>
       </div>
-      <div class="panel-body">
-        <ul class="list-group">
-          <% @children.each do |child| %>
-          <li class="list-group-item">
-            <% if current_user.children.pluck(:id).empty? %>
+      <ul class="list-group">
+        <% @children.each do |child| %>
+        <li class="list-group-item">
+          <div class="btn-group">
+            <% if child.users.pluck(:id).include? current_user.id %>
+            <button class="btn btn-success">
+              <a href="/delete_family/<%= child.families.find_by(:user_id => current_user.id).id %>">
+                <i class="fa fa-check-square" aria-hidden="true"></i>
+              </a>
+            </button>
+            <% else %>
             <form action="/create_family" method="post">
               <!-- Hidden input for authenticity token to protect from forgery -->
               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+              <!-- Label and input for user_id -->
+
               <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+
+
+              <!-- Label and input for child_id -->
 
               <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= child.id %>">
 
-              <button class="btn btn-link">
+              <button class=" btn btn-default">
                 <i class="fa fa-check-square-o" aria-hidden="true"></i>
               </button>
             </form>
-            <% else %>
-            <button class="btn btn-link">
-            <a href="delete_family/<%= current_user.families.find_by(:child_id => child.id).id %>">
-              <i class="fa fa-check-square" aria-hidden="true"></i>
-            </a>
-          </button>
             <% end %>
-            <a href="/children/<%= child.id %>"><%= child.first_name %> <%= child.last_name %></a>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+          </div>
+          <a href="/children/<%= child.id %>">
+            <%= child.first_name %> <%= child.last_name %>
+          </a>
+
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

@@ -16,6 +16,8 @@ class UsersController < ApplicationController
 
   def my_children
     @children = Child.all
+    @my_children = current_user.children
+    @my_families = current_user.families
   end
 
 end
