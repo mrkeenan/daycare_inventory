@@ -40,10 +40,10 @@ class ItemsController < ApplicationController
     @item.size = params[:size]
     @item.child_id = params[:child_id]
     @item.total_cnt = params[:total_cnt]
-    @item.current_cnt = params[:current_cnt]
+    @item.current_cnt = params[:current_cnt].to_i - params[:return_cnt].to_i
     @item.min_cnt = params[:min_cnt]
     @item.take_cnt = params[:take_cnt]
-    @item.return_cnt = params[:return_cnt]
+    @item.return_cnt = 0
     @item.weather_type = params[:weather_type]
     @item.description = params[:description]
 

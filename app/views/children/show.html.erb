@@ -47,8 +47,8 @@
           </thead>
           <tbody>
             <% @child.items.each do |item| %>
-              <% if item.min_cnt.nil? == false && item.min_cnt > 0 %>
-              <tr>
+            <% if item.min_cnt.nil? == false && item.min_cnt > 0 %>
+            <tr>
               <td>
                 <%= item.description %>
               </td>
@@ -137,10 +137,9 @@
                   <button class="btn btn-warning btn-sm">
                     <i class="fa fa-edit"></i>
                   </button>
+                </td>
+              </form>
 
-                </form>
-
-              </td>
             </form>
             <td>
               <a class="btn btn-danger btn-sm" role="button" href="/delete_item/<%= item.id %>"><i class="fa fa-trash-o"></i></a>
