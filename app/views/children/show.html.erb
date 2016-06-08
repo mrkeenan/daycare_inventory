@@ -27,7 +27,8 @@
             <tr>
               <th>Description</th>
               <th>Size</th>
-              <th>Minimum</th>
+              <th>Minimum #</th>
+              <th>Current #></th>
             </tr>
           </thead>
           <tbody>
@@ -75,29 +76,23 @@
           <tbody>
             <% @child.items.each do |item| %>
             <tr>
-              <td>
-                <%= item.description %>
-              </td>
-
-              <td>
-                <%= item.size %>
-              </td>
-
               <form action="/update_item/<%= item.id %>" method="post">
 
                 <!-- Hidden input for authenticity token to protect from forgery -->
                 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                <input type="hidden" id="description" name="description" placeholder="Description" class="form-control" value="<%= item.description %>">
+                <td>
+                  <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= item.description %>" disabled>
+                </td>
 
-                <input type="hidden" id="size" name="size" placeholder="Size" class="form-control" value="<%= item.size %>">
-
+                <td>
+                  <input type="text" id="size" name="size" placeholder="Size" class="form-control" value="<%= item.size %>" disabled>
+                </td>
 
                 <td>
                   <input type="text" id="total_cnt" name="total_cnt" placeholder="Total #" class="form-control" value="<%= item.total_cnt %>">
                 </td>
 
                 <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= @child.id %>">
-
 
                 <input type="hidden" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= item.current_cnt %>">
 
