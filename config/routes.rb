@@ -68,7 +68,6 @@ Rails.application.routes.draw do
   # READ
   get "/children", :controller => "children", :action => "index"
   get "/children/:id", :controller => "children", :action => "show"
-  post "/add_item_1", :controller => "children", :action => "show"
 
   # UPDATE
   get "/children/:id/edit", :controller => "children", :action => "edit"

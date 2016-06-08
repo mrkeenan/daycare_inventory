@@ -62,22 +62,6 @@
               <td></td>
               <td></td>
             </tr>
-
-            <tr class="default">
-              <td colspan=6>
-                <h4 class="text-center">Add Item</h4>
-              </td>
-            </tr>
-            <% if @add_field_1.nil? %>
-            <tr>
-              <form action="/add_item_1" method="post">
-                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-                <td colspan=4>
-                  <%= select_tag(:add_field_1, options_from_collection_for_select(@child.items, :description, :description), :class => "form-control") %>
-                </td>
-              </form>
-            </tr>
-            <% end%>
           </tbody>
         </table>
       </div>
@@ -103,6 +87,8 @@
               <th>Description</th>
               <th>Size</th>
               <th>Total #</th>
+              <th>Min. #</th>
+              <th>Current #</th>
               <th></th>
               <th></th>
             </tr>
@@ -126,11 +112,14 @@
                   <input type="text" id="total_cnt" name="total_cnt" placeholder="Total #" class="form-control" value="<%= item.total_cnt %>">
                 </td>
 
+                <td>
+                  <input type="text" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= item.min_cnt %>">
+                </td>
+
+                <td>
+                  <input type="text" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= item.current_cnt %>">
+                </td>
                 <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= @child.id %>">
-
-                <input type="hidden" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= item.current_cnt %>">
-
-                <input type="hidden" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= item.min_cnt %>">
 
                 <input type="hidden" id="take_cnt" name="take_cnt" placeholder="Take cnt" class="form-control" value="<%= item.take_cnt %>">
 
@@ -150,7 +139,7 @@
               </tr>
               <% end %>
               <tr class="default">
-                <td colspan=5>
+                <td colspan=7>
                   <h4 class="text-center">Add Item</h4>
                 </td>
               </tr>
@@ -170,12 +159,15 @@
                     <input type="text" id="total_cnt" name="total_cnt" placeholder="Total #" class="form-control" value="<%= @item.total_cnt %>">
                   </td>
 
+
+                  <td>
+                    <input type="text" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= @item.min_cnt %>" disabled>
+                  </td>
+
+                  <td>
+                    <input type="text" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= @item.current_cnt %>" disabled>
+                  </td>
                   <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= @child.id %>">
-
-
-                  <input type="hidden" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= @item.current_cnt %>">
-
-                  <input type="hidden" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= @item.min_cnt %>">
 
                   <input type="hidden" id="take_cnt" name="take_cnt" placeholder="Take cnt" class="form-control" value="<%= @item.take_cnt %>">
 
@@ -184,9 +176,11 @@
                   <input type="hidden" id="weather_type" name="weather_type" placeholder="Weather type" class="form-control" value="<%= @item.weather_type %>">
                   <td></td>
                   <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <td colspan=5>
+                  <td colspan=7>
                     <button class="btn btn-success btn-block">
                       Create Item
                     </button>
