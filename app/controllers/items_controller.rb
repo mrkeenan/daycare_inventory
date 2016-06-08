@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to :back, :notice => "Item created successfully."
     else
-      render :back, :notice => "Item was not created."
+      redirect_to :back, :notice => "Item was not created."
     end
   end
 
