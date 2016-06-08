@@ -28,7 +28,9 @@
               <th>Description</th>
               <th>Size</th>
               <th>Minimum #</th>
-              <th>Current #></th>
+              <th>Current #</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -37,13 +39,33 @@
               <td>Column content</td>
               <td>Column content</td>
               <td>Column content</td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <td>2</td>
               <td>Column content</td>
               <td>Column content</td>
               <td>Column content</td>
+              <td></td>
+              <td></td>
             </tr>
+            
+            <tr class="default">
+              <td colspan=6>
+                <h4 class="text-center">Add Item</h4>
+              </td>
+            </tr>
+            <% if @add_field_1.nil? %>
+            <tr>
+              <form action="/add_item_1" method="post">
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <td colspan=4>
+                  <%= select_tag(:add_field_1, options_from_collection_for_select(@child.items, :description, :description), :class => "form-control") %>
+                </td>
+              </form>
+            </tr>
+            <% end%>
           </tbody>
         </table>
       </div>
@@ -115,7 +137,7 @@
                 </td>
               </tr>
               <% end %>
-              <tr class="info">
+              <tr class="default">
                 <td colspan=5>
                   <h4 class="text-center">Add Item</h4>
                 </td>
