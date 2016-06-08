@@ -9,6 +9,18 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <a class="btn btn-warning btn-block" role="button" href="/children/<%= @child.id %>/edit">
+      Edit Child
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <p>
+  </p>
+</div>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -50,7 +62,7 @@
               <td></td>
               <td></td>
             </tr>
-            
+
             <tr class="default">
               <td colspan=6>
                 <h4 class="text-center">Add Item</h4>
@@ -185,4 +197,23 @@
           </table>
         </div>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <a class="btn btn-danger btn-block" role="button" href="/delete_child/<%= @child.id %>">
+          Delete Child
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+      </p>
     </div>

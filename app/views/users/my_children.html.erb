@@ -20,13 +20,21 @@
           <tbody>
             <% @children.each do |child| %>
             <tr>
-              <td>
-                <div class="btn-group">
-                  <% if child.users.pluck(:id).include? current_user.id %>
+
+              <div class="btn-group">
+                <% if child.users.pluck(:id).include? current_user.id %>
+                <td>
                   <a class="btn btn-success" role="button" href="/delete_family/<%= child.families.find_by(:user_id => current_user.id).id %>">
                     <i class="fa fa-check-square" aria-hidden="true"></i>
                   </a>
-                  <% else %>
+                </td>
+                <td>
+                  <a href="/children/<%= child.id %>">
+                    <%= child.first_name %> <%= child.last_name %>
+                  </a>
+                </td>
+                <% else %>
+                <td>
                   <form action="/create_family" method="post">
                     <!-- Hidden input for authenticity token to protect from forgery -->
                     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -44,14 +52,12 @@
                       <i class="fa fa-check-square-o" aria-hidden="true"></i>
                     </button>
                   </form>
-                  <% end %>
                 </td>
 
                 <td>
-                  <a href="/children/<%= child.id %>">
-                    <%= child.first_name %> <%= child.last_name %>
-                  </a>
+                  <%= child.first_name %> <%= child.last_name %>
                 </td>
+                <% end %>
               </tr>
               <% end %>
             </tbody>

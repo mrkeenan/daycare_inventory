@@ -15,16 +15,16 @@ class UsersController < ApplicationController
   end
 
   def my_children
-    @children = Child.all
-    @my_children = current_user.children
-    @my_families = current_user.families
+      @children = Child.all
+      @my_children = current_user.children
+      @my_families = current_user.families
   end
 
-  def to_daycare
+    def to_daycare
 
+    end
+
+    def from_daycare
+
+    end
   end
-
-  def from_daycare
-
-  end
-end
