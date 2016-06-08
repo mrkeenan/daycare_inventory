@@ -35,7 +35,7 @@ FROM DAYCARE
           <tbody>
             <% child.items.each do |item| %>
               <tr>
-                <form action="/update_item/<%= item.id %>" method="post">
+                <form action="/update_item_return/<%= item.id %>" method="post">
                   <!-- Hidden input for authenticity token to protect from forgery -->
                   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
                   <td>

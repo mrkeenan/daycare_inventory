@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   # UPDATE
   get "/items/:id/edit", :controller => "items", :action => "edit"
   post "/update_item/:id", :controller => "items", :action => "update"
+  post "/update_item_return/:id", :controller => "items", :action => "update_return"
+  post "/update_item_take/:id", :controller => "items", :action => "update_take"
 
   # DELETE
   get "/delete_item/:id", :controller => "items", :action => "destroy"

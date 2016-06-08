@@ -1,1 +1,90 @@
-TO DAYCARE
+FROM DAYCARE
+<% current_user.children.each do |child| %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title text-center">Take to Daycare with <%= child.first_name.capitalize %></h2>
+        <p></p>
+        <p class="text-center">
+        </p>
+      </div>
+
+      <div class="panel-body">
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th>
+                Description
+              </th>
+              <th>
+                Size
+              </th>
+              <th>
+                # to Take
+              </th>
+              <th>
+
+              </th>
+              <th>
+              </th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+            <% child.items.each do |item| %>
+            <% if item.take_cnt.nil? == false && item.take_cnt >0 %>
+            <tr>
+              <form action="/update_item_take/<%= item.id %>" method="post">
+                <!-- Hidden input for authenticity token to protect from forgery -->
+                <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                <td>
+                  <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= item.description %>" readonly>
+                </td>
+
+                <td>
+                  <input type="text" id="size" name="size" placeholder="Size" class="form-control" value="<%= item.size %>" readonly>
+                </td>
+
+                <td>
+                  <input type="text" id="take_cnt" name="take_cnt" placeholder="Take cnt" class="form-control" value="<%= item.take_cnt %>" readonly>
+                </td>
+
+
+                <input type="hidden" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= item.current_cnt %>" readonly>
+
+                <input type="hidden" id="return_cnt" name="return_cnt" placeholder="Return cnt" class="form-control" value="<%= item.return_cnt %>">
+
+
+                <input type="hidden" id="total_cnt" name="total_cnt" placeholder="Total cnt" class="form-control" value="<%= item.total_cnt %>">
+
+                <input type="hidden" id="min_cnt" name="min_cnt" placeholder="Min cnt" class="form-control" value="<%= item.min_cnt %>">
+
+
+                <input type="hidden" id="current_cnt" name="current_cnt" placeholder="Current cnt" class="form-control" value="<%= item.current_cnt %>">
+
+
+                <input type="hidden" id="child_id" name="child_id" placeholder="Child" class="form-control" value="<%= child.id %>">
+
+
+
+
+                <input type="hidden" id="weather_type" name="weather_type" placeholder="Weather type" class="form-control" value="<%= item.weather_type %>">
+
+                <td>
+                  <button class="btn btn-success btn-sm">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </form>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
