@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
     @item.description = params[:description]
 
     if @item.save
-      redirect_to "/items", :notice => "Item created successfully."
+      redirect_to :back, :notice => "Item created successfully."
     else
-      render 'new'
+      render :back, :notice => "Item was not created."
     end
   end
 
@@ -48,9 +48,9 @@ class ItemsController < ApplicationController
     @item.description = params[:description]
 
     if @item.save
-      redirect_to "/items", :notice => "Item updated successfully."
+      redirect_to :back, :notice => "Item updated successfully."
     else
-      render 'edit'
+      redirect_to :back, :notice => "Item was not updated."
     end
   end
 
@@ -59,6 +59,6 @@ class ItemsController < ApplicationController
 
     @item.destroy
 
-    redirect_to "/items", :notice => "Item deleted."
+    redirect_to :back, :notice => "Item deleted."
   end
 end

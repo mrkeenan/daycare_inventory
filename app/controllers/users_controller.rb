@@ -20,4 +20,11 @@ class UsersController < ApplicationController
     @my_families = current_user.families
   end
 
+  def to_daycare
+
+  end
+
+  def from_daycare
+
+  end
 end

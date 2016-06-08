@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/users", :controller => "users", :action => "index"
   get "/my_children", :controller => "users", :action => "my_children"
+  get "/to_daycare", :controller => "users", :action => "to_daycare"
+  get "/from_daycare", :controller => "users", :action => "from_daycare"
   # Routes for the Class resource:
   # CREATE
   get "/classrooms/new", :controller => "classrooms", :action => "new"
