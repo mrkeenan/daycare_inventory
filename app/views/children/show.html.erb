@@ -46,22 +46,27 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td></td>
-              <td></td>
+            <% @child.items.each do |item| %>
+              <% if item.min_cnt.nil? == false && item.min_cnt > 0 %>
+              <tr>
+              <td>
+                <%= item.description %>
+              </td>
+
+              <td>
+                <%= item.size %>
+              </td>
+
+              <td>
+                <%= item.min_cnt %>
+              </td>
+
+              <td>
+                <%= item.current_cnt %>
+              </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td>Column content</td>
-              <td></td>
-              <td></td>
-            </tr>
+            <% end %>
+            <% end %>
           </tbody>
         </table>
       </div>
@@ -160,7 +165,7 @@
               </td>
 
               <td>
-                <input type="number" min="0" max="100" step="1" id="total_cnt" name="total_cnt" placeholder="Total #" class="form-control" value="<%= @item.total_cnt %>">
+                <input type="text"id="total_cnt" name="total_cnt" placeholder="Total #" class="form-control" value="<%= @item.total_cnt %>">
               </td>
 
 
@@ -178,7 +183,6 @@
               <input type="hidden" id="return_cnt" name="return_cnt" placeholder="Return cnt" class="form-control" value="<%= @item.return_cnt %>">
 
               <input type="hidden" id="weather_type" name="weather_type" placeholder="Weather type" class="form-control" value="<%= @item.weather_type %>">
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
