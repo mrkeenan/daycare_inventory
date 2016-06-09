@@ -45,7 +45,7 @@ class ChildrenController < ApplicationController
     @child.first_name = params[:first_name]
 
     if @child.save
-      redirect_to "/children", :notice => "Child updated successfully."
+      redirect_to "/children/#{@child.id}", :notice => "Child updated successfully."
     else
       render 'edit'
     end
