@@ -53,6 +53,12 @@
             </label>
 
             <%= select_tag(:class_id, options_from_collection_for_select(Classroom.all, :id, :room), :class => "form-control") %>
+
+            <p>
+              <a href="/classrooms/new">
+                Or add a new class
+              </a>
+            </p>
           </div>
 
           <button class="btn btn-success">

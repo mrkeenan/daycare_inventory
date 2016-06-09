@@ -1,64 +1,65 @@
 <!-- Validation failure messages -->
 <% if @classroom.errors.any? %>
-  <% @classroom.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @classroom.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
 <% end %>
-
-<div class="page-header">
-  <h3>Add Class</h3>
-</div>
-
+<% end %>
 <div class="row">
-  <div class="col-md-12">
-    <form action="/create_classroom" method="post">
-      <!-- Hidden input for authenticity token to protect from forgery -->
-      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-      <!-- Label and input for room -->
-      <div class="form-group">
-        <label for="room" class="control-label">
-          Room
-        </label>
-
-        <input type="text" id="room" name="room" placeholder="Room" class="form-control" value="<%= @classroom.room %>">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Add Class</h3>
       </div>
 
-      <!-- Label and input for teacher_name_1 -->
-      <div class="form-group">
-        <label for="teacher_name_1" class="control-label">
-          Teacher name
-        </label>
+      <div class="panel-body">
+          <form action="/create_classroom" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-        <input type="text" id="teacher_name_1" name="teacher_name_1" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_1 %>">
+            <!-- Label and input for room -->
+            <div class="form-group">
+              <label for="room" class="control-label">
+                Room
+              </label>
+
+              <input type="text" id="room" name="room" placeholder="Room" class="form-control" value="<%= @classroom.room %>">
+            </div>
+
+            <!-- Label and input for teacher_name_1 -->
+            <div class="form-group">
+              <label for="teacher_name_1" class="control-label">
+                Teacher name
+              </label>
+
+              <input type="text" id="teacher_name_1" name="teacher_name_1" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_1 %>">
+            </div>
+
+            <!-- Label and input for teacher_name_2 -->
+            <div class="form-group">
+              <label for="teacher_name_2" class="control-label">
+                Teacher name
+              </label>
+
+              <input type="text" id="teacher_name_2" name="teacher_name_2" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_2 %>">
+            </div>
+
+            <!-- Label and input for teacher_name_3 -->
+            <div class="form-group">
+              <label for="teacher_name_3" class="control-label">
+                Teacher name
+              </label>
+
+              <input type="text" id="teacher_name_3" name="teacher_name_3" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_3 %>">
+            </div>
+
+            <button class="btn btn-success">
+              Create Class
+            </button>
+            or
+            <a href="/classrooms">Cancel</a>
+          </form>
+        </div>
       </div>
-
-      <!-- Label and input for teacher_name_2 -->
-      <div class="form-group">
-        <label for="teacher_name_2" class="control-label">
-          Teacher name
-        </label>
-
-        <input type="text" id="teacher_name_2" name="teacher_name_2" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_2 %>">
-      </div>
-
-      <!-- Label and input for teacher_name_3 -->
-      <div class="form-group">
-        <label for="teacher_name_3" class="control-label">
-          Teacher name
-        </label>
-
-        <input type="text" id="teacher_name_3" name="teacher_name_3" placeholder="Teacher name" class="form-control" value="<%= @classroom.teacher_name_3 %>">
-      </div>
-
-      <button class="btn btn-success">
-        Create Class
-      </button>
-      or
-      <a href="/classrooms">Cancel</a>
-    </form>
-  </div>
-</div>
