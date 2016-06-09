@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>DaycareInventory</title>
+  <title>Daycare Inventory</title>
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -41,9 +41,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if current_user.present? %>
         <ul class="nav navbar-nav">
+          <li><a href="/my_children">My Children</a></li>
           <li><a href="/to_daycare">Going to Daycare</a></li>
           <li><a href="/from_daycare">Returning from Daycare</a></li>
-          <li><a href="/my_children">My Children</a></li>
           <li><a href="/classrooms">Classes</a></li>
         </ul>
         <% end %>

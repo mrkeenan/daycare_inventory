@@ -33,7 +33,7 @@
 
           <tbody>
             <% child.items.each do |item| %>
-            <% if item.take_cnt.nil? == false && item.take_cnt >0 %>
+            <% if item.take_cnt.nil? == false && item.take_cnt > 0 %>
             <tr>
               <form action="/update_item_take/<%= item.id %>" method="post">
                 <!-- Hidden input for authenticity token to protect from forgery -->

@@ -40,9 +40,15 @@ class ItemsController < ApplicationController
     @item.size = params[:size]
     @item.child_id = params[:child_id]
     @item.total_cnt = params[:total_cnt]
-    @item.current_cnt = params[:current_cnt]
+    @item.current_cnt = params[:current_cnt].to_i
     @item.min_cnt = params[:min_cnt].to_i
-    @item.take_cnt = params[:take_cnt]
+
+    if @item.current_cnt < @item.min_cnt
+      @item.take_cnt = @item.min_cnt - @item.current_cnt
+    else
+      @item.take_cnt = params[:take_cnt]
+    end
+    
     @item.return_cnt = params[:return_cnt]
     @item.weather_type = params[:weather_type]
     @item.description = params[:description]
@@ -88,7 +94,7 @@ class ItemsController < ApplicationController
     @item.total_cnt = params[:total_cnt]
     @item.current_cnt = params[:current_cnt].to_i + params[:take_cnt].to_i
     @item.min_cnt = params[:min_cnt]
-    @item.take_cnt = 0  
+    @item.take_cnt = 0
     @item.return_cnt = params[:return_cnt]
     @item.weather_type = params[:weather_type]
     @item.description = params[:description]
